@@ -61,6 +61,7 @@ body, h1, p {
 @media (max-width:768px) {
     .custom-container {
         max-width: 90%;
+        max-height: 85%;
         padding: 10px;
     }
 }
