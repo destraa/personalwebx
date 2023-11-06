@@ -51,7 +51,10 @@ body, h1, p {
     background-color: white; 
     border: 1px solid #ccc; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin: 1% auto;
+    margin-top: 1%;
+    margin-right: auto;
+    margin-bottom: 1%;
+    margin-left: auto;
   }
 
 @media (max-width:768px) {
