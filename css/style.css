@@ -47,12 +47,11 @@ body, h1, p {
 .custom-container {
     max-width: 900px;
     width: 100%;  
-    margin: 10px auto; 
     padding: 20px; 
     background-color: white; 
     border: 1px solid #ccc; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin: 1.9% auto;
+    margin: 1% auto;
   }
 
 @media (max-width:768px) {
