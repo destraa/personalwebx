@@ -122,8 +122,8 @@ body, h1, p, a {
     position: relative;
     top: 250px; 
     max-width: 300px;
-    margin: 6% auto;
-    transform: translate(0%, -50%); 
+    margin: 1% auto;
+    transform: translate(0%, -55%); 
   }
   
   /* Style for the card image */
