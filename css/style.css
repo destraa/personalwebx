@@ -51,9 +51,9 @@ body, h1, p {
     background-color: white; 
     border: 1px solid #ccc; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin-top: 1%;
+    margin-top: 5vh;
     margin-right: auto;
-    margin-bottom: 1%;
+    margin-bottom: 5vh;
     margin-left: auto;
   }
 
