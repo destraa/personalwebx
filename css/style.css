@@ -76,7 +76,10 @@ body, h2, p {
     float: top; 
     width: 80%; 
     background-color: white; 
-    padding: 20px; 
+    padding-top: 30px;
+    padding-bottom: 20px; 
+    padding-left: 20px;
+    padding-bottom: 20px;
     box-sizing: border-box;
     align-items: center;
     margin: auto;
