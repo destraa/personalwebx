@@ -115,8 +115,8 @@ body, h1, p, a {
 .custom-card {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 455px;
+    width: 250px;
+    height: 410px;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -124,6 +124,7 @@ body, h1, p, a {
     position: relative;
     top: 250px; 
     max-width: 300px;
+    max-height: fit-content;
     margin: 1% auto;
     transform: translate(0%, -55%); 
   }
