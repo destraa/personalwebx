@@ -71,7 +71,7 @@
                 <textarea required rows="3" cols="10" class="" id="input-message"></textarea>
             </div>
 
-            <div class="button-container">
+            <div class="button-container" id="button-container">
                 <button type="button" id="openGmailButton" id="follow-button" onclick="submitData()">Submit</button>
             </div>
         </form>
@@ -80,6 +80,21 @@
             document.getElementById('openGmailButton').addEventListener('click', function() {
                 window.location.href = 'https://mail.google.com';
             });
+        </script>
+                <script>
+
+                const delay = 150000;
+
+
+                function createButton() {
+                    const buttonContainer = document.getElementById("button-container");
+                    const button = document.createElement("button");
+                    button.textContent = "Delayed Button";
+                    buttonContainer.appendChild(button);
+                }
+
+ 
+                setTimeout(createButton, delay);
         </script>
         <script>document.getElementById('follow-button').addEventListener('click', function() { alert('Thank you for following me!'); });</script>
 
