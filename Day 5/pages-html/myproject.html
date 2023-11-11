@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <link rel="icon" type="image-repository/png" href="/image-repository/greeting.png">
+        <title>Personal Web</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/myproject.css">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+        
+    <style>
+                /* Bootstrap Styling Assets */
+        .selector-for-some-widget {
+        box-sizing: content-box;
+        }
+        /* Bootstrap Styling Assets */
+    </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-left">
+                <ul>
+                    <li>
+                        <img src="/image-repository/logo.png" alt="logo" />
+                    </li>
+                    <li>
+                        <a href="/index.html" class="custom-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="/pages-html/myproject.html" class="custom-link">My Project</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <a href="/pages-html/contactme.html" class="custom-link">Contact Me</a>
+            </div>
+        </nav>
+
+<div class="section-one">
+    <div class="container">
+        <div class="form-title">
+            <h2>ADD YOUR POST</h2>
+        <div class="form-container">
+            <form onsubmit="
+                addBlog(event);">
+                <div>
+                    <label for="project-name">Project Name</label>
+                </div>
+                <div class="project-name">
+                    <input type="text" id="nama-project">
+                </div>
+                <div class="project-time">
+                    <div>
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date">
+                    </div>
+                    <div>
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="desc-project">Desciption</label>
+                </div>
+                <div>
+                    <textarea class="desc-project" id="desc-project"></textarea>
+                </div>
+
+                <div>
+                    <div><label>Technologies</label></div>
+                    <div class="tech-option">
+                        <div>
+                            <div>
+                                <input type="checkbox" name="tech" id="option-1" value="nodejs">
+                                <label class="checkbox-custom" for="option-one">Node Js</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="tech" id="option-2" value="nextjs">
+                                <label class="checkbox-custom" for="option-one">Next Js</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <input type="checkbox" name="tech" id="option-3" value="reactjs">
+                                <label class="checkbox-custom" for="option-one">React Js</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="tech" id="option-4" value="vuejs">
+                                <label class="checkbox-custom" for="option-one">Vue JS</label>
+                            </div>
+                            
+                        </div>
+                    </div>                      
+                </div>
+
+                    <div>
+                        <label>Upload Image</label>
+                    </div>
+                    <div>
+                        <label class="input-blog-image">
+                            <div class="text">Choose</div>
+                            <div>
+                                <img src="/image-repository/file.png">
+                                <input type="file" id="input-blog-image" hidden >
+                            </div>
+
+                    </label>
+                    </div>
+
+                    <div class="submit-button-container">
+                       <button class="submit-button" type="submit">Submit</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+        <div class="section-two">
+            <div class="container">
+                <div class="container-title"> <h2>MY POST</h2></div>
+                <div id="contents" class="blog-list">
+                    <div class="blog-list-item">
+                        <div class="thumb">
+                            <img src="/image-repository/martadinataclass.jpg" alt="Thumbnail">
+                        </div>
+                        <h4>
+                            <a href="/pages-html/blog-detail.html">Modern Warships Deploy Indonesian Warships</a>
+                        </h4>
+                        <p class="duration">Duration: 3 Months</p>
+                        <p align="justify">Analyzed the feedback from our Indonesian players and are happy to announce that the KRI Raden Eddy Martadinata will receive a buff and will be available for purchase in the in-game store for gold.</p>
+                        <div class="technologies-project">
+                            <div class="technologies-project-card">
+                              <i class="fa-brands fa-node-js fa-xl"></i>
+                              <i class="fa-brands fa-js fa-xl"></i>
+                              <i class="fa-brands fa-react fa-xl"></i>
+                              <i class="fa-brands fa-vuejs fa-xl"></i>
+                            </div>
+                          </div>
+                        <div class="btn-group">
+                            <button class="btn-blog">Edit</button>
+                            <button class="btn-blog">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/Day 4/javascript/myproject.js"></script>
+    </body>
+
+
+</html>
