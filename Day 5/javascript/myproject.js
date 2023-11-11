@@ -63,10 +63,10 @@ function renderBlog() {
                     <p class="duration">durasi : ${dataBlog[index].duration} bulan</p>
                     <p>${dataBlog[index].description}</p>
                     <div class="icon-technology">
-                        ${(dataBlog[index].checkbox1 ? `<img src="/Day 4/image-repository/node-js.svg" class="show" alt="Node JS">` : `<img src="/Day 4/image-repository/node-js.svg" alt="/Node Js">`)}
-                        ${(dataBlog[index].checkbox2 ? `<img src="/Day 4/image-repository/react.svg" class="show" alt="React JS">` : `<img src="/Day 4/image-repository/react.svg" alt="React JS">`)}
-                        ${(dataBlog[index].checkbox3 ? `<img src="/Day 4/image-repository/next js.svg" class="show" alt="Next Js">` : `<img src="/Day 4/image-repository/next js.svg" alt="Next Js">`)}
-                        ${(dataBlog[index].checkbox4 ? `<img src="/Day 4/image-repository/vuejs.svg" class="show" alt="Vue JS">` : `<img src="/Day 4/image-repository/vuejs.svg" alt="Vue Js">`)}
+                        ${(dataBlog[index].checkbox1 ? `<img src="/image-repository/node-js.svg" class="show" alt="Node JS">` : `<img src="/Day 4/image-repository/node-js.svg" alt="/Node Js">`)}
+                        ${(dataBlog[index].checkbox2 ? `<img src="/image-repository/react.svg" class="show" alt="React JS">` : `<img src="/Day 4/image-repository/react.svg" alt="React JS">`)}
+                        ${(dataBlog[index].checkbox3 ? `<img src="/image-repository/next js.svg" class="show" alt="Next Js">` : `<img src="/Day 4/image-repository/next js.svg" alt="Next Js">`)}
+                        ${(dataBlog[index].checkbox4 ? `<img src="/image-repository/vuejs.svg" class="show" alt="Vue JS">` : `<img src="/Day 4/image-repository/vuejs.svg" alt="Vue Js">`)}
                     </div>
                     <div class="btn-group">
                         <button class="btn-blog">edit</button>
