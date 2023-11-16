@@ -247,7 +247,7 @@ function fetchData() {
       resolve(data);
       // Uncomment the line below to simulate an error
       // reject(new Error('Error fetching data!'));
-    }, 2000);
+    }, 10000);
   });
 }
 
