@@ -172,27 +172,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function fetchTestimonials() {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/testimonials', true);
+// function fetchTestimonials() {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('GET', '/api/testimonials', true);
 
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        const testimonials = JSON.parse(xhr.responseText);
-        resolve(testimonials);
-      } else {
-        reject(new Error(`Failed to fetch testimonials. Status: ${xhr.status}`));
-      }
-    };
+//     xhr.onload = function () {
+//       if (xhr.status === 200) {
+//         const testimonials = JSON.parse(xhr.responseText);
+//         resolve(testimonials);
+//       } else {
+//         reject(new Error(`Failed to fetch testimonials. Status: ${xhr.status}`));
+//       }
+//     };
 
-    xhr.onerror = function () {
-      reject(new Error('Network error while fetching testimonials.'));
-    };
+//     xhr.onerror = function () {
+//       reject(new Error('Network error while fetching testimonials.'));
+//     };
 
-    xhr.send();
-  });
-}
+//     xhr.send();
+//   });
+// }
 
 // Function to render testimonials on the page
 function renderTestimonials(testimonials) {
