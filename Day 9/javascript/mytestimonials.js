@@ -121,99 +121,76 @@ const testimonialData = [
 
 
   // To implement asynchronous programming using promises, async/await, and AJAX in your JavaScript code
-// mytestimonials.js
-
-// Function to fetch testimonials from a server asynchronously
-// mytestimonials.js
-
-// Function to fetch testimonials from the provided API
-// Function to fetch testimonials from the provided API
-async function fetchTestimonials() {
-  try {
-    const response = await fetch('https://api.npoint.io/7838abb77d1f8079a915');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching testimonials:', error);
-    // Handle the error here or throw it again to be caught by the caller
-    throw error;
-  }
-}
-
-
-
-// Function to render testimonials on the page
-function renderTestimonials(testimonials) {
-  const testimonialContainer = document.getElementById('testimonial__container');
-  testimonialContainer.innerHTML = ''; // Clear existing content
-
-  testimonials.forEach((testimonial) => {
-    const testimonialCard = document.createElement('div');
-    testimonialCard.className = 'testimonial__card';
-
-    testimonialCard.innerHTML = `
-      <img class="testimonial__cardImage" src="${testimonial.image}" alt="User Image">
-      <i class="testimonial__comment">${testimonial.testimonial}</i>
-      <p class="testimonial__stars" id="reviewStars">
-        ${Array.from({ length: testimonial.stars }, () => '<i class="fa-solid fa-star"></i>').join('')}
-      </p>
-      <p class="testimonial__author">- ${testimonial.author}</p>
-    `;
-
-    testimonialContainer.appendChild(testimonialCard);
-  });
-}
-
-async function filterTestimonial(rating) {
-  try {
-    const testimonials = await fetchTestimonials();
-
-    const filteredTestimonial = (rating === 0) ? testimonials : testimonials.filter(
-      (item) => item.stars === rating
-    );
-
-    const testimonialContainerEL = document.getElementById('testimonial__container');
-
-    if (filteredTestimonial.length === 0) {
-      testimonialContainerEL.innerHTML = '<h2 style="text-align: center; width: 100%;">Data Not Found</h2>';
-    } else {
-      renderTestimonials(filteredTestimonial);
+  async function fetchTestimonials() {
+    try {
+      const response = await fetch('https://api.npoint.io/7838abb77d1f8079a915');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching testimonials:', error);
+      throw error;
     }
-
-    // Update the active class for rating buttons
-    const getAllRatingButtons = document.querySelectorAll('.rating__btn');
-    getAllRatingButtons.forEach((button) => button.classList.remove('active'));
-
-    const activeRatingButtons = document.getElementById(`${rating}-stars`);
-    if (activeRatingButtons) {
-      activeRatingButtons.classList.add('active');
-    }
-
-  } catch (error) {
-    console.error('Error filtering testimonials:', error);
   }
-}
 
-// Function to filter testimonials based on rating
-function filterTestimonial(rating) {
-  // You can implement filtering logic here if needed
-  // For simplicity, we'll refetch all testimonials and render them
-  fetchTestimonials().then(renderTestimonials).catch((error) => {
-    // Handle error from fetchTestimonials
-    console.error('Error in filterTestimonial:', error);
+  function renderTestimonials(testimonials) {
+    const testimonialContainer = document.getElementById('testimonial__container');
+    testimonialContainer.innerHTML = ''; // Clear existing content
+
+    testimonials.forEach((testimonial) => {
+      const testimonialCard = document.createElement('div');
+      testimonialCard.className = 'testimonial__card';
+
+      testimonialCard.innerHTML = `
+        <img class="testimonial__cardImage" src="${testimonial.image}" alt="User Image">
+        <i class="testimonial__comment">${testimonial.testimonial}</i>
+        <p class="testimonial__stars" id="reviewStars">
+          ${Array.from({ length: testimonial.stars }, () => '<i class="fa-solid fa-star"></i>').join('')}
+        </p>
+        <p class="testimonial__author">- ${testimonial.author}</p>
+      `;
+
+      testimonialContainer.appendChild(testimonialCard);
+    });
+  }
+
+  async function filterTestimonial(rating) {
+    try {
+      const testimonials = await fetchTestimonials();
+
+      const filteredTestimonial = (rating === 0) ? testimonials : testimonials.filter(
+        (item) => item.stars === rating
+      );
+
+      const testimonialContainerEL = document.getElementById('testimonial__container');
+
+      if (filteredTestimonial.length === 0) {
+        testimonialContainerEL.innerHTML = '<h2 style="text-align: center; width: 100%;">Data Not Found</h2>';
+      } else {
+        renderTestimonials(filteredTestimonial);
+      }
+
+      // Update the active class for rating buttons
+      const getAllRatingButtons = document.querySelectorAll('.rating__btn');
+      getAllRatingButtons.forEach((button) => button.classList.remove('active'));
+
+      const activeRatingButtons = document.getElementById(`${rating}-stars`);
+      if (activeRatingButtons) {
+        activeRatingButtons.classList.add('active');
+      }
+
+    } catch (error) {
+      console.error('Error filtering testimonials:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const testimonials = await fetchTestimonials();
+      renderTestimonials(testimonials);
+    } catch (error) {
+      console.error('Error on page load:', error);
+    }
   });
-}
-
-// Initial load of testimonials when the page loads
-
-document.addEventListener('DOMContentLoaded', () => {
-  fetchTestimonials().then(renderTestimonials).catch((error) => {
-    // Handle error from initial fetchTestimonials
-    console.error('Error on page load:', error);
-  });
-});
-
-
 
 // function fetchTestimonials() {
 //   return new Promise((resolve, reject) => {
