@@ -164,7 +164,35 @@ function renderTestimonials(testimonials) {
   });
 }
 
+async function filterTestimonial(rating) {
+  try {
+    const testimonials = await fetchTestimonials();
 
+    const filteredTestimonial = (rating === 0) ? testimonials : testimonials.filter(
+      (item) => item.stars === rating
+    );
+
+    const testimonialContainerEL = document.getElementById('testimonial__container');
+
+    if (filteredTestimonial.length === 0) {
+      testimonialContainerEL.innerHTML = '<h2 style="text-align: center; width: 100%;">Data Not Found</h2>';
+    } else {
+      renderTestimonials(filteredTestimonial);
+    }
+
+    // Update the active class for rating buttons
+    const getAllRatingButtons = document.querySelectorAll('.rating__btn');
+    getAllRatingButtons.forEach((button) => button.classList.remove('active'));
+
+    const activeRatingButtons = document.getElementById(`${rating}-stars`);
+    if (activeRatingButtons) {
+      activeRatingButtons.classList.add('active');
+    }
+
+  } catch (error) {
+    console.error('Error filtering testimonials:', error);
+  }
+}
 
 // Function to filter testimonials based on rating
 function filterTestimonial(rating) {
@@ -177,11 +205,13 @@ function filterTestimonial(rating) {
 }
 
 // Initial load of testimonials when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  fetchTestimonials().then(renderTestimonials).catch((error) => {
-    // Handle error from initial fetchTestimonials
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const testimonials = await fetchTestimonials();
+    renderTestimonials(testimonials);
+  } catch (error) {
     console.error('Error on page load:', error);
-  });
+  }
 });
 
 
