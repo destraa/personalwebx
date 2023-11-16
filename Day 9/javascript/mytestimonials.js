@@ -195,70 +195,70 @@ document.addEventListener('DOMContentLoaded', () => {
 // }
 
 // Function to render testimonials on the page
-function renderTestimonials(testimonials) {
-  const testimonialContainer = document.getElementById('testimonial__container');
-  testimonialContainer.innerHTML = '';
+// function renderTestimonials(testimonials) {
+//   const testimonialContainer = document.getElementById('testimonial__container');
+//   testimonialContainer.innerHTML = '';
 
-  testimonials.forEach(testimonial => {
-    const card = document.createElement('div');
-    card.className = 'testimonial__card';
+//   testimonials.forEach(testimonial => {
+//     const card = document.createElement('div');
+//     card.className = 'testimonial__card';
 
-    // Create and append other elements like image, comment, stars, and author to the card
+//     // Create and append other elements like image, comment, stars, and author to the card
 
-    testimonialContainer.appendChild(card);
-  });
-}
+//     testimonialContainer.appendChild(card);
+//   });
+// }
 
-// Function to filter testimonials based on rating
-function filterTestimonial(rating) {
-  // Call the fetchTestimonials function to get testimonials
-  fetchTestimonials()
-    .then(testimonials => {
-      // Filter testimonials based on rating
-      const filteredTestimonials = testimonials.filter(testimonial => {
-        return testimonial.rating === rating;
-      });
+// // Function to filter testimonials based on rating
+// function filterTestimonial(rating) {
+//   // Call the fetchTestimonials function to get testimonials
+//   fetchTestimonials()
+//     .then(testimonials => {
+//       // Filter testimonials based on rating
+//       const filteredTestimonials = testimonials.filter(testimonial => {
+//         return testimonial.rating === rating;
+//       });
 
-      // Render the filtered testimonials on the page
-      renderTestimonials(filteredTestimonials);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
+//       // Render the filtered testimonials on the page
+//       renderTestimonials(filteredTestimonials);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// }
 
-// Initial load: Fetch all testimonials and render on the page
-document.addEventListener('DOMContentLoaded', function () {
-  fetchTestimonials()
-    .then(testimonials => {
-      renderTestimonials(testimonials);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-});
+// // Initial load: Fetch all testimonials and render on the page
+// document.addEventListener('DOMContentLoaded', function () {
+//   fetchTestimonials()
+//     .then(testimonials => {
+//       renderTestimonials(testimonials);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// });
 
 // Asynchronous function using Promises
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Simulate fetching data from an API
-      const data = { message: 'Data fetched successfully!' };
-      resolve(data);
-      // Uncomment the line below to simulate an error
-      // reject(new Error('Error fetching data!'));
-    }, 10000);
-  });
-}
+// function fetchData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       // Simulate fetching data from an API
+//       const data = { message: 'Data fetched successfully!' };
+//       resolve(data);
+//       // Uncomment the line below to simulate an error
+//       // reject(new Error('Error fetching data!'));
+//     }, 10000);
+//   });
+// }
 
 // Using the asynchronous function with Promises
-fetchData()
-  .then((data) => {
-    console.log(data.message);
-  })
-  .catch((error) => {
-    console.error(error.message);
-  });
+// fetchData()
+//   .then((data) => {
+//     console.log(data.message);
+//   })
+//   .catch((error) => {
+//     console.error(error.message);
+//   });
 
 
   // Asynchronous function using AJAX
