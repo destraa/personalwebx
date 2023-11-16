@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchTestimonials().then(renderTestimonials);
 });
 
-fetchDataWithAjax()
+fetchData()
   .then((data) => {
     console.log('Data:', data);
   })
