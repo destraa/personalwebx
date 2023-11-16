@@ -205,13 +205,12 @@ function filterTestimonial(rating) {
 }
 
 // Initial load of testimonials when the page loads
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const testimonials = await fetchTestimonials();
-    renderTestimonials(testimonials);
-  } catch (error) {
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetchTestimonials().then(renderTestimonials).catch((error) => {
+    // Handle error from initial fetchTestimonials
     console.error('Error on page load:', error);
-  }
+  });
 });
 
 
