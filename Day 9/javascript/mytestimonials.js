@@ -140,6 +140,8 @@ async function fetchTestimonials() {
   }
 }
 
+
+
 // Function to render testimonials on the page
 function renderTestimonials(testimonials) {
   const testimonialContainer = document.getElementById('testimonial__container');
