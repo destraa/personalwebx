@@ -116,3 +116,45 @@ const testimonialData = [
   }
   
   filterTestimonial(0);
+
+
+  // To implement asynchronous programming using promises, async/await, and AJAX in your JavaScript code
+
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchData();
+});
+
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.npoint.io/7838abb77d1f8079a915'); // Replace 'your-endpoint' with your actual endpoint
+        const data = await response.json();
+        displayData(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+function displayData(data) {
+    const testimonialContainer = document.getElementById('testimonial__container');
+
+    // Clear existing content
+    testimonialContainer.innerHTML = '';
+
+    // Assuming data is an array of objects with properties like comment, stars, author, etc.
+    data.forEach(item => {
+        const testimonialCard = document.createElement('div');
+        testimonialCard.className = 'testimonial__card';
+        testimonialCard.innerHTML = `
+            <img class="testimonial__cardImage" src="${item.image}">
+            <i class="testimonial__comment">"${item.comment}"</i>
+            <p class="testimonial__stars" id="reviewStars">${generateStarIcons(item.stars)}</p>
+            <p class="testimonial__author">- ${item.author}</p>
+        `;
+        testimonialContainer.appendChild(testimonialCard);
+    });
+}
+
+function generateStarIcons(stars) {
+    const starIcons = Array.from({ length: stars }, () => '<i class="fa-solid fa-star"></i>');
+    return starIcons.join('');
+}
