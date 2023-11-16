@@ -125,6 +125,7 @@ const testimonialData = [
 // mytestimonials.js
 
 // Function to fetch testimonials from the provided API
+// Function to fetch testimonials from the provided API
 async function fetchTestimonials() {
   try {
     const response = await fetch('https://api.npoint.io/7838abb77d1f8079a915');
@@ -132,6 +133,7 @@ async function fetchTestimonials() {
     return data;
   } catch (error) {
     console.error('Error fetching testimonials:', error);
+    // Handle the error here or throw it again to be caught by the caller
     throw error;
   }
 }
@@ -147,7 +149,7 @@ function renderTestimonials(testimonials) {
 
     testimonialCard.innerHTML = `
       <img class="testimonial__cardImage" src="${testimonial.image}" alt="User Image">
-      <i class="testimonial__comment">${testimonial.comment}</i>
+      <i class="testimonial__comment">${testimonial.testimonial}</i>
       <p class="testimonial__stars" id="reviewStars">
         ${Array.from({ length: testimonial.stars }, () => '<i class="fa-solid fa-star"></i>').join('')}
       </p>
@@ -162,21 +164,19 @@ function renderTestimonials(testimonials) {
 function filterTestimonial(rating) {
   // You can implement filtering logic here if needed
   // For simplicity, we'll refetch all testimonials and render them
-  fetchTestimonials().then(renderTestimonials);
+  fetchTestimonials().then(renderTestimonials).catch((error) => {
+    // Handle error from fetchTestimonials
+    console.error('Error in filterTestimonial:', error);
+  });
 }
 
 // Initial load of testimonials when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  fetchTestimonials().then(renderTestimonials);
-});
-
-fetchData()
-  .then((data) => {
-    console.log('Data:', data);
-  })
-  .catch((error) => {
-    console.error(error.message);
+  fetchTestimonials().then(renderTestimonials).catch((error) => {
+    // Handle error from initial fetchTestimonials
+    console.error('Error on page load:', error);
   });
+});
 
 
 
