@@ -170,6 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchTestimonials().then(renderTestimonials);
 });
 
+fetchDataWithAjax()
+  .then((data) => {
+    console.log('Data:', data);
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
+
 
 
 // function fetchTestimonials() {
@@ -262,33 +270,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Asynchronous function using AJAX
-function fetchDataWithAjax() {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.npoint.io/7838abb77d1f8079a915', true);
+// function fetchDataWithAjax() {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('GET', 'https://api.npoint.io/7838abb77d1f8079a915', true);
 
-    xhr.onload = function () {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        const responseData = JSON.parse(xhr.responseText);
-        resolve(responseData);
-      } else {
-        reject(new Error(`Error fetching data. Status: ${xhr.status}`));
-      }
-    };
+//     xhr.onload = function () {
+//       if (xhr.status >= 200 && xhr.status < 300) {
+//         const responseData = JSON.parse(xhr.responseText);
+//         resolve(responseData);
+//       } else {
+//         reject(new Error(`Error fetching data. Status: ${xhr.status}`));
+//       }
+//     };
 
-    xhr.onerror = function () {
-      reject(new Error('Network error'));
-    };
+//     xhr.onerror = function () {
+//       reject(new Error('Network error'));
+//     };
 
-    xhr.send();
-  });
-}
+//     xhr.send();
+//   });
+// }
 
-// Using the asynchronous function with AJAX
-fetchDataWithAjax()
-  .then((data) => {
-    console.log('Data:', data);
-  })
-  .catch((error) => {
-    console.error(error.message);
-  });
+// // Using the asynchronous function with AJAX
+// fetchDataWithAjax()
+//   .then((data) => {
+//     console.log('Data:', data);
+//   })
+//   .catch((error) => {
+//     console.error(error.message);
+//   });
