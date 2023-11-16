@@ -157,6 +157,56 @@ function renderTestimonials(testimonials) {
     `;
 
     testimonialContainer.appendChild(testimonialCard);
+
+
+    function filterTestimonial(stars) {
+      // rating buttons
+      const getAllRatingButtons = document.querySelectorAll(".rating__btn");
+      getAllRatingButtons.forEach((button) => button.classList.remove("active"));
+    
+      // class by stars
+      const activeRatingButtons = document.getElementById(`${stars}-stars`);
+      if (activeRatingButtons) {
+        activeRatingButtons.classList.add("active");
+      }
+    
+      // filter testimonial by stars
+      const filteredTestimonial = testimonialData.filter(
+        (item) => item.stars === stars
+      );
+    
+      let testimonialContainerEL = document.getElementById(
+        "testimonial__container"
+      );
+    
+      // all items
+      if (stars == 0) {
+        const testimonialHTML = testimonialData
+          .map((item) =>
+            renderTestimonial(item.image, item.testimonial, item.stars, item.author)
+          )
+          .join(" ");
+        testimonialContainerEL.innerHTML = testimonialHTML;
+        return;
+      }
+    
+      // show no data when there is no stars selected
+      if (filteredTestimonial.length === 0) {
+        document.getElementById(
+          "testimonial__container"
+        ).innerHTML = `<h2 style="text-align: center; width: 100%;">Data Not Found</h2>`;
+        return;
+      }
+    
+      
+      const testimonialHTML = filteredTestimonial
+        .map((item) =>
+          renderTestimonial(item.image, item.testimonial, item.stars, item.author)
+        )
+        .join(" ");
+      testimonialContainerEL.innerHTML = testimonialHTML;
+    }
+    
   });
 }
 
